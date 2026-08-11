@@ -15,6 +15,7 @@ if (fopen(problem".INP","r")){
     cin>>n;
     vector<ll>a(n);
     for (int i=0;i<n;i++)cin>>a[i];
+    sort(a.begin(),a.end());
     while (true){
         for (auto it:a)cout<<it<<" ";
         cout<<"\n";

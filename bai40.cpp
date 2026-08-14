@@ -4,31 +4,26 @@ using namespace std;
 #define ll long long
 #define problem ""
 
-void gen(int n,string &s){
-    if(s.length()==n){
-        cout<<s<<"\n";
-        return;
-    }
-    for(char c='0';c<='9';c++){
-        if(s.empty()&&c=='0'&& n>1) continue;
-        s.push_back(c);
-        gen(n,s);
-        s.pop_back();
-    }
-}
 
-int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    if(fopen(problem".INP","r")){
-        freopen(problem".INP","r",stdin);
-        freopen(problem".OUT","w",stdout);
-    }
-    string a;
-    cin>>a;
+int main()
+{
+if (fopen(problem".INP","r")){
+    freopen(problem".INP","r",stdin);
+    freopen(problem".OUT","w",stdout);
+}
+    set<string>se;
+    string n;
+    cin>>n;
     do{
-        cout<<a<<"\n";
+        string cur="";
+        for (int i=0;i<n.size();i++){
+            cur+=n[i];
+            if (se.find(cur)==se.end()){
+                cout<<cur<<"\n";
+                se.insert(cur);
+            }
+        }
     }
-    while (next_permutation(a.begin(),a.end()));
+    while (next_permutation(n.begin(),n.end()));
     return 0;
 }
